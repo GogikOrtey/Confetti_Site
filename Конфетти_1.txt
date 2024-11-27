@@ -1,0 +1,62 @@
+// Подключаем библиотеку canvas-confetti
+const confetti = require('canvas-confetti');
+
+// Создаем функцию для создания эффекта конфетти
+function createConfetti(event) {
+    /*
+    // Запускаем эффект конфетти в месте клика пользователя
+    confetti({
+      particleCount: 100,
+      startVelocity: 30,
+      spread: 360,
+      origin: {
+        x: event.clientX / window.innerWidth,
+        y: event.clientY / window.innerHeight
+      }
+    });
+    */
+   /*
+    confetti({
+        particleCount: 50,
+        shape: 'circle',
+        colors: [null, null, null],
+        angle: 45,
+        spread: 120,
+        origin: {
+            x: event.clientX / window.innerWidth,
+            y: event.clientY / window.innerHeight
+        }
+      });
+    */
+
+      confetti({
+        particleCount: 50,
+        startVelocity: 30,
+        shape: 'circle',
+        angle: 45,
+        spread: 360,
+        origin: {
+          x: event.clientX / window.innerWidth,
+          //y: event.clientY / window.innerHeight
+        }
+      });
+  }
+  
+  // Вызываем функцию createConfetti() при клике на экране
+  document.addEventListener('click', function(event) {
+    createConfetti(event);
+  });
+
+/*
+// Создаем функцию для создания эффекта конфетти
+function createConfetti() {
+  // Запускаем эффект конфетти
+  confetti();
+}
+
+// Вызываем функцию createConfetti() при клике на экране
+document.addEventListener('click', function() {
+  createConfetti();
+});
+*/
+

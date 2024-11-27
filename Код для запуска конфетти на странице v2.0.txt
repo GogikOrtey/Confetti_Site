@@ -1,0 +1,105 @@
+/*
+В методе confetti есть следующие параметры1:
+
+particleCount: число (по умолчанию 50) - количество конфетти, которые будут запущены
+angle: число (по умолчанию 90) - угол запуска конфетти в градусах (90 - это прямо вверх)
+spread: число (по умолчанию 45) - разброс конфетти относительно угла запуска в градусах (45 - это плюс-минус 22.5 градуса)
+startVelocity: число (по умолчанию 45) - начальная скорость конфетти в пикселях
+decay: число (по умолчанию 0.9) - затухание скорости конфетти
+gravity: число (по умолчанию 1) - сила гравитации, влияющая на конфетти
+drift: число (по умолчанию 0) - сила, которая двигает конфетти влево или вправо
+ticks: число (по умолчанию 200) - продолжительность анимации конфетти в кадрах
+shapes: массив строк (по умолчанию [‘square’, ‘circle’]) - формы конфетти, которые будут использоваться
+scalar: число (по умолчанию 1) - множитель размера конфетти
+zIndex: число (по умолчанию 100) - z-index элемента canvas, на котором рисуются конфетти
+colors: массив строк или null (по умолчанию null) - цвета конфетти в формате hex или rgb, или null для случайных цветов
+origin: объект {x: число, y: число} или null (по умолчанию null) - точка запуска конфетти в долях от ширины и высоты элемента canvas, или null для случайной точки
+disableForReducedMotion: булево (по умолчанию false) - флаг, который отключает анимацию конфетти для пользователей, которые предпочитают сниженное движение в браузере или операционной системе
+*/
+
+// Разброс шаром, в точке нажатия
+
+// Подключаем библиотеку canvas-confetti
+const confetti = require('canvas-confetti');
+
+// Создаем функцию для создания эффекта конфетти
+function createConfetti(event) {
+      confetti({
+        particleCount: 120,
+        startVelocity: 30,
+        shape: 'circle',
+        angle: 45,
+        spread: 360,
+        origin: {
+          x: event.clientX / window.innerWidth,
+          y: event.clientY / window.innerHeight
+        }
+      });
+  }
+  
+  // Вызываем функцию createConfetti() при клике на экране
+  document.addEventListener('click', function(event) {
+    createConfetti(event);
+});
+
+
+
+
+// Подключаем библиотеку canvas-confetti
+//const confetti = require('canvas-confetti');
+
+// Разброс широким конусом вверх, из точки нажатия
+/*
+// Создаем функцию для создания эффекта конфетти
+function createConfetti(event) {
+      confetti({
+        particleCount: 100, // Число частиц
+        startVelocity: 35,  // Начальная скорость
+        shape: 'circle',    // Фигура
+        angle: 90,          // Начальный угол относительно 0
+        spread: 90,         // Конченый угол, относительно начального
+        origin: {
+          x: event.clientX / window.innerWidth,
+          y: event.clientY / window.innerHeight
+        }
+      });
+  }
+  
+  // Вызываем функцию createConfetti() при клике на экране
+  document.addEventListener('click', function(event) {
+    createConfetti(event);
+});
+*/
+
+// Разброс конусом вверх, из точки нажатия
+/*
+// Создаем функцию для создания эффекта конфетти
+function createConfetti(event) {
+    confetti({
+      origin: {
+        x: event.clientX / window.innerWidth,
+        y: event.clientY / window.innerHeight
+      }
+    });
+}
+
+// Вызываем функцию createConfetti() при клике на экране
+document.addEventListener('click', function(event) {
+  createConfetti(event);
+});
+*/
+
+// Разброс конусом вверх, из центра окна
+/*
+// Создаем функцию для создания эффекта конфетти
+function createConfetti() {
+  // Запускаем эффект конфетти
+  confetti();
+}
+
+// Вызываем функцию createConfetti() при клике на экране
+document.addEventListener('click', function() {
+  createConfetti();
+});
+*/
+
